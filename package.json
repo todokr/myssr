@@ -1,0 +1,29 @@
+{
+  "name": "myssr",
+  "private": true,
+	"type": "module",
+  "scripts": {
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "generate": "vite build --outDir dist/static && npm run build:server && node prerender",
+    "serve": "cross-env NODE_ENV=production node server"
+  },
+  "packageManager": "pnpm@10.12.2",
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.3",
+    "compression": "^1.8.1",
+    "cross-env": "^10.0.0",
+    "express": "^5.1.0",
+    "serve-static": "^2.2.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.6"
+  }
+}
